@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -9,7 +10,35 @@ import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import ScrollProgress from './components/ScrollProgress'
 
+function useCleanHashLinks() {
+  useEffect(() => {
+    const handler = (e) => {
+      const a = e.target.closest('a[href^="#"]')
+      if (!a) return
+      const href = a.getAttribute('href')
+      if (!href || href === '#') return
+      const id = href.slice(1)
+      const el = document.getElementById(id)
+      if (!el) return
+      e.preventDefault()
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      window.history.replaceState(null, '', window.location.pathname + window.location.search)
+    }
+    document.addEventListener('click', handler)
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1)
+      const el = document.getElementById(id)
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+      }
+      window.history.replaceState(null, '', window.location.pathname + window.location.search)
+    }
+    return () => document.removeEventListener('click', handler)
+  }, [])
+}
+
 function Home() {
+  useCleanHashLinks()
   return (
     <div className="min-h-screen bg-app">
       <ScrollProgress />
