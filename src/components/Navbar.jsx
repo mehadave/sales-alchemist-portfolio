@@ -7,7 +7,8 @@ const LINKS = [
   { label: 'About', href: '#about', n: '01' },
   { label: 'Work', href: '#projects', n: '02' },
   { label: 'Stack', href: '#skills', n: '03' },
-  { label: 'Contact', href: '#contact', n: '04' },
+  { label: 'Experience', href: '#experience', n: '04' },
+  { label: 'Contact', href: '#contact', n: '05' },
 ]
 
 function formatTime(d) {

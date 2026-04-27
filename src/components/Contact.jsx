@@ -31,7 +31,7 @@ export default function Contact() {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="mb-16 flex items-center gap-4"
       >
-        <span className="eyebrow text-accent">04 — Contact</span>
+        <span className="eyebrow text-accent">05 — Contact</span>
         <span className="h-px flex-1" style={{ backgroundColor: 'var(--border)' }} />
         <span className="eyebrow">Open to roles · Q2 2026</span>
       </motion.div>
