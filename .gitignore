@@ -5,3 +5,8 @@ dist
 .env.production
 .DS_Store
 *.log
+
+# Claude Code local config (keep local, never commit)
+.claude/
+CLAUDE.md
+CLAUDE.local.md
